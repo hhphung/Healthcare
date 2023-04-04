@@ -1,0 +1,5 @@
+healthcare\User\User.class
+healthcare\User\Role.class
+healthcare\User\UserRepository.class
+healthcare\User\UseController.class
+healthcare\Application.class
