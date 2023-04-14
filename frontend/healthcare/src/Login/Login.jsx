@@ -12,10 +12,16 @@ export const LoginPage = (props) => {
     console.log('Password:', password);
   };
 
+ 
 
 
   return (
     <div className="container">
+      <div className="logo">
+        <img src={require('../photo/healthcare_logo.png')} alt="Company Logo" />
+      </div>
+      <div className="login-form">
+
       <form onSubmit={handleSubmit}>
         <h1>Login</h1>
         <label>
@@ -36,9 +42,10 @@ export const LoginPage = (props) => {
           />
         </label>
         <br />
-        <button type="submit">Login</button>
+        <button >Login</button>
         <button className="link-btn" onClick={() => props.onFormSwitch('register')}>New User</button>
       </form>
+      </div>
     </div>
   );
 }

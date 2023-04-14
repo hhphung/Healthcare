@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import logo from './logo.svg';
 import './App.css';
 import { LoginPage } from './Login/Login';
 import { SignUpPage } from './SignUp/SignUp';
 
+
 function App() {
   const [currentForm, setCurrentForm] = useState('login');
-
   const toggleForm = (formName) => {
     setCurrentForm(formName);
   }

@@ -2,3 +2,5 @@
 03/29/2023: started the project, setup , maven project with the java, using Springboot framework.
 
 03/31/2023: build backend http request for user.
+
+java -jar target/MeetMe-1.0.0.jar

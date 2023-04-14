@@ -1,11 +1,10 @@
 package healthcare.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 @RestController
 @RequestMapping("/user")
+@CrossOrigin
 public class UseController {
 
     @Autowired
@@ -18,7 +17,7 @@ public class UseController {
         User checkIfExists = userRepository.findByName(user.getUsername());
 
         if (checkIfExists != null)
-            return "User already exists";
+            return "fail";
 
         userRepository.save(user);
         return "sucess";

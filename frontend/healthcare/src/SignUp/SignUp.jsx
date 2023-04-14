@@ -2,38 +2,53 @@ import React, { useState } from 'react';
 import './SignUp.css';
 
 export const SignUpPage = (props) => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+  //ser default state for the valiables 
+  const [username, setUserName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmedpassword, setConfirmedPassword] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('First Name:', firstName);
-    console.log('Last Name:', lastName);
-    console.log('Email:', email);
-    console.log('Password:', password);
-  };
+    //URL 
+    const url = 'http://localhost:8080/user/';
+    
+    // the passwrod is not matching
+    if (password !== confirmedpassword){
+      alert("The password is not match");
+    }
+
+    else{
+      const data = {
+        username: username,
+        password: password,
+        email: email,
+        role: "Customer"
+      };
+
+    fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*'
+    },
+    body: JSON.stringify(data)})
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error(error)); 
+  }
+};
 
   return (
     <div className="container">
       <form onSubmit={handleSubmit}>
         <h1>Sign Up</h1>
         <label>
-          First Name:
+          UserName:
           <input
             type="text"
-            value={firstName}
-            onChange={(event) => setFirstName(event.target.value)}
-          />
-        </label>
-        <br />
-        <label>
-          Last Name:
-          <input
-            type="text"
-            value={lastName}
-            onChange={(event) => setLastName(event.target.value)}
+            value={username}
+            onChange={(event) => setUserName(event.target.value)}
           />
         </label>
         <br />
@@ -55,8 +70,17 @@ export const SignUpPage = (props) => {
           />
         </label>
         <br />
+        <label>
+          Confirm Password:
+          <input
+            type="password"
+            value={confirmedpassword}
+            onChange={(event) => setConfirmedPassword(event.target.value)}
+          />
+        </label>
+        <br />
         <button type="submit">Sign Up</button>
-        <button className="link-btn" onClick={() => props.onFormSwitch('login')}>Back to Login</button>
+        <button type="button" className="link-btn" onClick={() =>  props.onFormSwitch('login')}>Back to Login</button>
       </form>
     </div>
   );

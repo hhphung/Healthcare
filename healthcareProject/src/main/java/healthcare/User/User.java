@@ -1,16 +1,7 @@
 package healthcare.User;
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.JsonBackReference;
 
-
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 @Entity
 public class User {
@@ -23,14 +14,20 @@ public class User {
     @Column(nullable = false)
     private String Password;
 
+    @Column(nullable = false)
+    private String Email;
+
     @Enumerated(EnumType.STRING)
     private Role Role;
+
+
     public User(){
 
     }
-    public User(String username, String password, Role role){
+    public User(String username, String password, String email,Role role){
         this.Username = username;
         this.Password = password;
+        this.Email = email;
         this.Role = role;
     }
 
@@ -68,5 +65,13 @@ public class User {
 
     public void setRole(Role role) {
         Role = role;
+    }
+
+    public String getEmail() {
+        return Email;
+    }
+
+    public void setEmail(String email) {
+        Email = email;
     }
 }
