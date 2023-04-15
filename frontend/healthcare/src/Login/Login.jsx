@@ -12,6 +12,10 @@ export const LoginPage = (props) => {
     console.log('Password:', password);
   };
 
+
+  const loginClick = () =>{
+    props.onFormSwitch('register')
+  }
  
 
 
@@ -25,9 +29,9 @@ export const LoginPage = (props) => {
       <form onSubmit={handleSubmit}>
         <h1>Login</h1>
         <label>
-          Email:
+          Username:
           <input
-            type="email"
+            type="text"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
           />
@@ -42,7 +46,7 @@ export const LoginPage = (props) => {
           />
         </label>
         <br />
-        <button >Login</button>
+        <button className="login" onClick={loginClick}>Login</button>
         <button className="link-btn" onClick={() => props.onFormSwitch('register')}>New User</button>
       </form>
       </div>

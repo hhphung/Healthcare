@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import './App.css';
 import { LoginPage } from './Login/Login';
 import { SignUpPage } from './SignUp/SignUp';
-
+import {ashBoardPage} from './dashboard/dashboard';
 
 function App() {
   const [currentForm, setCurrentForm] = useState('login');

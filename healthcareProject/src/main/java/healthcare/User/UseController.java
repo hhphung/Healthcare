@@ -13,13 +13,17 @@ public class UseController {
     public String createUser(@RequestBody User user) {
         if (user == null)
             return "Invalid request body";
-
         User checkIfExists = userRepository.findByName(user.getUsername());
-
         if (checkIfExists != null)
             return "fail";
-
         userRepository.save(user);
         return "sucess";
+    }
+    @GetMapping(value = "/", produces = "application/json")
+    public User loginUser(@RequestBody User user) {
+        User checkIfExists = userRepository.findByName(user.getUsername());
+        if (checkIfExists == null || !(checkIfExists.getPassword().equals(user.getPassword())))
+            return null;
+        return checkIfExists;
     }
 }
