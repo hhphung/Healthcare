@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './App.css';
+import './Login.css';
 
 
 export const LoginPage = (props) => {
@@ -8,14 +8,14 @@ export const LoginPage = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('Email:', email);
-    console.log('Password:', password);
+    if(!email || !password){
+      alert("Please enter your Login");
+    }
+    else{
+    }
   };
 
 
-  const loginClick = () =>{
-    props.onFormSwitch('register')
-  }
  
 
 
@@ -46,8 +46,8 @@ export const LoginPage = (props) => {
           />
         </label>
         <br />
-        <button className="login" onClick={loginClick}>Login</button>
-        <button className="link-btn" onClick={() => props.onFormSwitch('register')}>New User</button>
+        <button className="login">Login</button>
+        <button className="link-btn" onClick={() => props.onFormSwitch('signup')}>New User</button>
       </form>
       </div>
     </div>
