@@ -19,7 +19,7 @@ public class UseController {
         userRepository.save(user);
         return "sucess";
     }
-    @GetMapping(value = "/", produces = "application/json")
+    @PostMapping(value = "/login", produces = "application/json")
     public User loginUser(@RequestBody User user) {
         User checkIfExists = userRepository.findByName(user.getUsername());
         if (checkIfExists == null || !(checkIfExists.getPassword().equals(user.getPassword())))

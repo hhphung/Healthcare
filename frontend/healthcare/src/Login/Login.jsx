@@ -1,21 +1,37 @@
 import React, { useState } from 'react';
 import './Login.css';
 
-
 export const LoginPage = (props) => {
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-
   const handleSubmit = (event) => {
     event.preventDefault();
-    if(!email || !password){
-      alert("Please enter your Login");
-    }
-    else{
-    }
-  };
+    //URL 
+    const url = 'http://localhost:8080/user/login';
 
+      const data = {
+        username: username,
+        password: password
+      };
 
+    fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*'
+    },
+    body: JSON.stringify(data)})
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      props.onFormSwitch('dashBoardPage');
+    })
+    .catch(error =>{ console.error(error);
+      alert("Username or Password is incorrect");
+    }); 
+  
+};
+     
  
 
 
@@ -32,8 +48,8 @@ export const LoginPage = (props) => {
           Username:
           <input
             type="text"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
+            value={username}
+            onChange={(event) => setUsername(event.target.value)}
           />
         </label>
         <br />
