@@ -4,3 +4,22 @@
 03/31/2023: build backend http request for user.
 
 java -jar target/MeetMe-1.0.0.jar
+
+
+User Registration and Login: Users should be able to create accounts and log in securely.
+
+Personal Health Records: Users should be able to store and access their health records, including medical history, test results, and medications.
+
+Appointment Scheduling: Users should be able to schedule appointments with healthcare providers.
+
+Prescription Management: Users should be able to manage their prescriptions, including refills, dosage information, and medication interactions.
+
+Tracking and Monitoring: Users should be able to track and monitor their health status, including vital signs and symptoms, and receive reminders for appointments and medications.
+
+Integration with Wearable Devices: The system should be able to integrate with wearable devices to collect data on physical activity, sleep, heart rate, and other vital signs.
+
+Telehealth Services: The system should enable users to receive remote healthcare services, such as virtual consultations, online therapy, and remote monitoring.
+
+Health Education and Resources: The system should provide users with access to educational resources and tools, such as articles, videos, and interactive modules, to help them manage their health and wellness.
+
+Data Security and Privacy: The system should ensure the security and privacy of users' health information by using encryption, secure data storage, and complying with regulatory requirements such as HIPAA.
